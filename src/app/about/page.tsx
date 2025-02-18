@@ -1,9 +1,8 @@
 "use client";
 
-import { useState } from "react";
 import { motion } from "framer-motion";
 import Head from "next/head";
-import { Target, Globe, Database, Users, Send, Check, ChevronRight } from "lucide-react";
+import { Target, Globe, Database, Users, ChevronRight } from "lucide-react";
 
 export default function About() {
 
@@ -11,7 +10,7 @@ export default function About() {
     <>
       <Head>
         <title>About Evera Global | Strategic Business Consulting & Digital Transformation</title>
-        <meta name="description" content="Discover Evera Global's unique approach combining strategic consulting, technology innovation, and global talent solutions for enterprise growth and digital transformation." />
+        <meta name="description" content="Discover Evera Global&apos;s unique approach combining strategic consulting, technology innovation, and global talent solutions for enterprise growth and digital transformation." />
         <meta name="keywords" content="business consulting, digital transformation, SaaS solutions, global talent, enterprise strategy" />
         <meta property="og:title" content="About Evera Global | Strategic Business Consulting" />
         <meta property="og:description" content="Expert consulting services for enterprise growth and digital transformation" />
@@ -38,7 +37,7 @@ export default function About() {
               </p>
               <p>
                 Our holistic approach integrates data-driven insights with operational excellence, empowering organizations 
-                to achieve sustainable growth in today's competitive landscape.
+                to achieve sustainable growth in today&apos;s competitive landscape.
               </p>
             </div>
           </motion.section>
@@ -140,6 +139,7 @@ export default function About() {
               <p className="text-lg text-gray-700 max-w-3xl mx-auto leading-relaxed">
                 To redefine enterprise success by creating synergies between human expertise, 
                 strategic innovation, and technological advancement on a global scale.
+                It&apos;s essential to embrace change.
               </p>
             </motion.section>
           </div>
@@ -186,22 +186,7 @@ export default function About() {
                     bio: "Drives innovation, technical excellence, and scalable solutions."
                   },
                   { 
-                    name: "John Doe", 
-                    role: "Software Engineer",
-                    bio: "Builds scalable, high-performance software solutions."
-                  },
-                  { 
-                    name: "Jane Doe", 
-                    role: "Software Engineer",
-                    bio: "Builds scalable, high-performance software solutions."
-                  },
-                  { 
-                    name: "James Doe", 
-                    role: "Accountant",
-                    bio: "Manages finances, ensures compliance, and optimizes profitability."
-                  },
-                  { 
-                    name: "June Doe", 
+                    name: "TBD", 
                     role: "Paralegal & Legal Coordinator",
                     bio: "Manages contracts, compliance, and legal documentation."
                   }

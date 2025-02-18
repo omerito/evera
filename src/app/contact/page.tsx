@@ -57,7 +57,7 @@ export default function Contact() {
             <div className="space-y-10 max-w-3xl mx-auto">
               <div className="text-center space-y-4">
                 <h2 className="text-4xl font-bold text-gray-900">
-                  Let's Talk About Your Idea
+                  Let&apos;s Talk About Your Idea
                 </h2>
                 <div className="h-1 w-24 bg-orange-600 mx-auto rounded-full"/>
               </div>
