@@ -1,12 +1,30 @@
 import "../app/globals.css";
+import type { Metadata } from "next";
+import { Inter } from "next/font/google";
+import "./globals.css";
 import Navbar from "../components/Navbar";
+import type React from "react";
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+const inter = Inter({ subsets: ["latin"] });
+
+export const metadata: Metadata = {
+  title: "Evera Global",
+  description: "Professional business consulting services for modern enterprises",
+  icons: {
+    icon: "/logo-evera.png", // Add this line.
+  },
+};
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html lang="en">
-      <body className="bg-gray-100 text-gray-900">
+      <body className={inter.className}>
         <Navbar />
-        <main className="container mx-auto px-4">{children}</main>
+        <main className="min-h-screen">{children}</main>
       </body>
     </html>
   );

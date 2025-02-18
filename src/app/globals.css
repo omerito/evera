@@ -3,16 +3,25 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #FFFFFF; /* Primary Background */
+  --foreground: #3D3D3D; /* Dark Gray for Text */
+  --navbar: #101010; /* Deep Black for Navbar & Headings */
+  --accent: #EA580C; /* Gold for Accents */
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #301111;
+    --foreground: #f2e9e9;
   }
 }
+
+/* Scroll snap & smooth scrolling for full-page sections */
+/* html,
+body {
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+} */
 
 body {
   color: var(--foreground);
