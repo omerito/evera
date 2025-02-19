@@ -13,7 +13,7 @@ export default function Logo() {
       >
         <Image
           src="/logo-evera.png" // Place your custom logo image in the public folder
-          alt="Evera Global Logo"
+          alt="Evera Global"
           width={160}
           height={160}
           className="object-contain bg-transparent"

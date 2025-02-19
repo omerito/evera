@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { FaTelegramPlane, FaWhatsapp, FaEnvelope, FaLinkedin, FaFacebookF, FaInstagram, FaCheckCircle } from "react-icons/fa";
+import { FaTelegramPlane, FaWhatsapp, FaEnvelope, FaLinkedin, FaTwitter, FaFacebookF, FaTiktok, FaInstagram, FaCheckCircle } from "react-icons/fa";
 import { Phone, Clock, MapPin, Send } from "lucide-react";
 import { useState } from "react";
 
@@ -166,8 +166,13 @@ export default function Contact() {
                     <Phone className="text-orange-600 mt-1" size={24} />
                     <div>
                       <h3 className="text-lg font-semibold text-gray-900">Call Us</h3>
-                      <p className="text-gray-600">+1 (682) 386-9056</p>
-                      <p className="text-gray-600">+251911204237</p>
+                      <a href="tel:+16823869056" className="text-gray-600 hover:text-orange-600 transition-colors">
+                        +1 (682) 386-9056
+                      </a>
+                      <br />
+                      <a href="tel:+251911204237" className="text-gray-600 hover:text-orange-600 transition-colors">
+                        +251911204237
+                      </a>
                     </div>
                   </div>
 
@@ -201,14 +206,11 @@ export default function Contact() {
                   </div>
 
                   <div className="flex gap-6 mt-8">
-                    <a href="https://wa.me/YOUR_NUMBER" className="text-gray-600 hover:text-orange-600 transition-colors">
+                    <a href="https://wa.me/message/THTFYOOD7AVSK1" className="text-gray-600 hover:text-orange-600 transition-colors">
                       <FaWhatsapp size={28} />
                     </a>
-                    <a href="https://t.me/YOUR_USERNAME" className="text-gray-600 hover:text-orange-600 transition-colors">
+                    <a href="https://t.me/everaglobal" className="text-gray-600 hover:text-orange-600 transition-colors">
                       <FaTelegramPlane size={28} />
-                    </a>
-                    <a href="https://linkedin.com/in/YOUR_PROFILE" className="text-gray-600 hover:text-orange-600 transition-colors">
-                      <FaLinkedin size={28} />
                     </a>
                   </div>
                 </div>
@@ -220,53 +222,53 @@ export default function Contact() {
 
                 {/* Newsletter - White Background */}
                 <motion.section 
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            className="py-20 bg-white rounded-2xl">
-            <div className="max-w-2xl mx-auto text-center px-4">
-              <div className="space-y-6">
-                <div className="space-y-4">
-                  <h3 className="text-4xl font-bold text-gray-900">Stay Ahead with Insights</h3>
-                  <div className="h-1 w-24 bg-orange-600 mx-auto rounded-full"/>
-                </div>
-                <p className="text-gray-600 text-lg">
-                  Get exclusive access to industry trends and transformation strategies
-                </p>
-                
-                <form onSubmit={handleSubscribe} className="mt-8">
-                  <div className="flex flex-col md:flex-row gap-4 items-center justify-center">
-                    <input
-                      type="email"
-                      placeholder="Enter professional email"
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                      className="w-full md:w-96 px-6 py-3 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-orange-500 text-black"
-                    />
-                    <motion.button
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                      type="submit"
-                      className="w-full md:w-auto px-8 py-3 bg-orange-600 text-white rounded-full shadow-lg hover:bg-orange-600 transition-colors flex items-center gap-2"
-                    >
-                      <Send size={18} />
-                      Subscribe
-                    </motion.button>
-                  </div>
-                  {message && (
-                    <motion.div
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      className={`mt-4 p-3 rounded-full text-sm ${
-                        isError ? 'bg-red-100 text-red-700' : 'bg-green-100 text-green-700'
-                      }`}
-                    >
-                      {message}
-                    </motion.div>
-                  )}
-                </form>
-              </div>
-            </div>
-          </motion.section>
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    className="py-20 bg-white border border-gray-300">
+                    <div className="max-w-2xl mx-auto text-center px-4">
+                      <div className="space-y-6">
+                        <div className="space-y-4">
+                          <h3 className="text-4xl font-bold text-gray-900">Stay Ahead with Insights</h3>
+                          <div className="h-1 w-24 bg-orange-600 mx-auto rounded-full"/>
+                        </div>
+                        <p className="text-gray-600 text-lg">
+                          Get exclusive access to industry trends and transformation strategies
+                        </p>
+                        
+                        <form onSubmit={handleSubscribe} className="mt-8">
+                          <div className="flex flex-col md:flex-row gap-4 items-center justify-center">
+                            <input
+                              type="email"
+                              placeholder="Enter professional email"
+                              value={email}
+                              onChange={(e) => setEmail(e.target.value)}
+                              className="w-full md:w-96 px-6 py-3 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-orange-500 text-black"
+                            />
+                            <motion.button
+                              whileHover={{ scale: 1.05 }}
+                              whileTap={{ scale: 0.95 }}
+                              type="submit"
+                              className="w-full md:w-auto px-8 py-3 bg-orange-600 text-white rounded-full shadow-lg hover:bg-orange-600 transition-colors flex items-center gap-2"
+                            >
+                              <Send size={18} />
+                              Subscribe
+                            </motion.button>
+                          </div>
+                          {message && (
+                            <motion.div
+                              initial={{ opacity: 0, y: 10 }}
+                              animate={{ opacity: 1, y: 0 }}
+                              className={`mt-4 p-3 rounded-full text-sm ${
+                                isError ? 'bg-red-100 text-red-700' : 'bg-green-100 text-green-700'
+                              }`}
+                            >
+                              {message}
+                            </motion.div>
+                          )}
+                        </form>
+                      </div>
+                    </div>
+                </motion.section>
 
       <footer className="bg-white text-gray-600 text-center py-8">
       
@@ -274,11 +276,17 @@ export default function Contact() {
           <a href="#" className="hover:text-gray-600 transition-colors">
             <FaFacebookF size={24} />
           </a>
-          <a href="#" className="hover:text-orange-500 transition-colors">
+          <a href="https://www.instagram.com/everaglobal?igsh=dGIxMzNmbmJkYWU1&utm_source=qr" className="hover:text-orange-500 transition-colors">
             <FaInstagram size={24} />
           </a>
-          <a href="#" className="hover:text-orange-500 transition-colors">
+          <a href="https://www.linkedin.com/company/evera-global/" className="hover:text-orange-500 transition-colors">
             <FaLinkedin size={24} />
+          </a>
+          <a href="https://x.com/EveraGlobal/" className="hover:text-orange-500 transition-colors">
+            <FaTwitter size={24} />
+          </a>
+          <a href="https://tiktok.me/evera.global" className="hover:text-orange-500 transition-colors">
+            <FaTiktok size={24} />
           </a>
         </div>
         <h2 className="text-xl font-bold mb-2">Evera Global</h2>
