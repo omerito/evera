@@ -169,9 +169,6 @@ export default function Contact() {
                         +1 (682) 386-9056
                       </a>
                       <br />
-                      <a href="tel:+251911204237" className="text-gray-600 hover:text-orange-600 transition-colors">
-                        +251911204237
-                      </a>
                     </div>
                   </div>
 
