@@ -15,7 +15,7 @@ export default function Logo() {
           src="/logo-evera.png" // Place your custom logo image in the public folder
           alt="Evera Global"
           width={160}
-          height={160}
+          height={40}
           className="object-contain bg-transparent"
         />
       </motion.div>

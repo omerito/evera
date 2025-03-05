@@ -1,67 +1,12 @@
 "use client";
 
-import Head from "next/head";
 import { useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Briefcase, BookOpen } from "lucide-react";
-
-const jobListings = [
-  {
-    id: "job-01",
-    title: "Full-Stack Engineer",
-    location: "Remote",
-    description:
-      "Join our team as a Full-Stack Engineer and work on cutting-edge projects using modern technologies.",
-    details:
-      "You will design, develop, and maintain both frontend and backend systems. Proficiency in React, Node.js, and databases is required. Experience with cloud platforms is a plus.",
-  },
-  {
-    id: "job-02",
-    title: "UI/UX Designer",
-    location: "Remote",
-    description:
-      "We are looking for a creative UI/UX Designer to craft intuitive and visually appealing user experiences.",
-    details:
-      "This role involves creating wireframes, prototypes, and collaborating with development teams. A strong portfolio and experience with tools like Figma or Sketch are required.",
-  },
-  {
-    id: "job-03",
-    title: "Accountant",
-    location: "Remote",
-    description:
-      "We need a detail-oriented Accountant to manage financial records and ensure compliance.",
-    details:
-      "Responsibilities include preparing financial statements, managing budgets, and ensuring tax compliance. Experience with accounting software like QuickBooks is required.",
-  },
-];
-
-const certificationCourses = [
-  {
-    id: "course-01",
-    title: "Full-Stack Development Bootcamp",
-    description:
-      "A comprehensive program to turn beginners into job-ready full-stack developers.",
-    details:
-      "This 6-month course covers HTML, CSS, JavaScript, React, Node.js, and databases. Includes hands-on projects and preparation for Google and Amazon certifications.",
-  },
-  {
-    id: "course-02",
-    title: "UI/UX Design Certification",
-    description:
-      "Learn the fundamentals of user-centered design and prototyping.",
-    details:
-      "This 3-month course teaches design principles, wireframing, and tools like Figma. Graduates will be prepared for entry-level UI/UX roles.",
-  },
-  {
-    id: "course-03",
-    title: "Cloud Engineering Program",
-    description:
-      "Master cloud infrastructure and deployment with AWS and Google Cloud.",
-    details:
-      "A 4-month course covering cloud architecture, resource management, and security. Prepares students for AWS Certified Solutions Architect and Google Cloud certifications.",
-  },
-];
+import { Briefcase, BookOpen, ChevronDown, ChevronUp, MapPin, Clock } from "lucide-react";
+import jobsData from "@/components/Careers/JobsData";
+import certificationsData from "@/components/Careers/CertificationsData";
+import Breadcrumb from "@/components/Common/Breadcrumb";
 
 export default function Careers() {
   const router = useRouter();
@@ -77,6 +22,9 @@ export default function Careers() {
         setActiveTab("courses");
       } else if (hash.includes("jobs")) {
         setActiveTab("jobs");
+      } else if (hash === "#about") {
+        const aboutSection = document.getElementById("about-section");
+        aboutSection?.scrollIntoView({ behavior: "smooth" });
       }
     }
   }, []);
@@ -106,61 +54,41 @@ export default function Careers() {
   };
 
   return (
-    <div className="pt-28 bg-white min-h-screen pb-24">
-      <Head>
-        <title>Careers & Certifications | TechFlex Solutions</title>
-        <meta
-          name="description"
-          content="Explore remote job opportunities and certification courses at TechFlex Solutions. Join our team or enhance your skills with our comprehensive training programs."
-        />
-        <meta
-          name="keywords"
-          content="remote jobs, full-stack engineer, UI/UX designer, accountant, certification courses, full-stack development, cloud engineering, UI/UX design"
-        />
-        <meta name="author" content="TechFlex Solutions" />
-        <link rel="canonical" href="https://techflex.com/careers" />
-      </Head>
+    <div className="bg-gray-50 dark:bg-gray-900">
+      <Breadcrumb
+        pageName="Careers"
+        description="Join our team or enhance your skills with our certification courses. We're always looking for talented individuals to help us build the future."
+      />
 
-      <div className="max-w-6xl mx-auto px-4 py-8">
-        <div className="text-center mb-8">
-          <motion.h1
-            className="text-4xl font-bold text-gray-900"
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-          >
-            Careers & Certifications
-          </motion.h1>
-          <p className="text-gray-600 mt-2">
-            Join our team or enhance your skills with our industry-leading programs.
-          </p>
+      <div className="container px-4 py-16 mx-auto sm:px-6 lg:px-8">
+        <div className="mb-10">
+          <div className="flex justify-center max-w-md p-1 mx-auto mb-8 space-x-2 bg-gray-100 rounded-full dark:bg-gray-800 md:space-x-4">
+            <button
+              onClick={() => setActiveTab("jobs")}
+              className={`flex items-center px-6 py-3 text-sm font-medium rounded-full transition-all duration-300 ${
+                activeTab === "jobs"
+                  ? "bg-orange-600 text-white shadow-md"
+                  : "text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700"
+              }`}
+            >
+              <Briefcase size={18} className="mr-2" />
+              Open Positions
+            </button>
+            <button
+              onClick={() => setActiveTab("courses")}
+              className={`flex items-center px-6 py-3 text-sm font-medium rounded-full transition-all duration-300 ${
+                activeTab === "courses"
+                  ? "bg-orange-600 text-white shadow-md"
+                  : "text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700"
+              }`}
+            >
+              <BookOpen size={18} className="mr-2" />
+              Certification Courses
+            </button>
+          </div>
         </div>
 
-        {/* Tabs */}
-        <div className="flex justify-center mb-8 space-x-4">
-          <button
-            onClick={() => setActiveTab("jobs")}
-            className={`px-6 py-3 font-semibold transition-colors border-b-4 ${
-              activeTab === "jobs"
-                ? "border-orange-600 text-orange-600"
-                : "border-transparent text-gray-600 hover:text-orange-600"
-            }`}
-          >
-            Job Listings
-          </button>
-          <button
-            onClick={() => setActiveTab("courses")}
-            className={`px-6 py-3 font-semibold transition-colors border-b-4 ${
-              activeTab === "courses"
-                ? "border-orange-600 text-orange-600"
-                : "border-transparent text-gray-600 hover:text-orange-600"
-            }`}
-          >
-            Certification Courses
-          </button>
-        </div>
-
-        <AnimatePresence>
+        <AnimatePresence mode="wait">
           {activeTab === "jobs" && (
             <motion.div
               key="jobs"
@@ -169,22 +97,46 @@ export default function Careers() {
               exit={{ opacity: 0, y: -10 }}
               className="space-y-6"
             >
-              {jobListings.map((job) => (
+              {jobsData.map((job, index) => (
                 <motion.div
                   key={job.id}
-                  whileHover={{ scale: 1.02 }}
-                  className="bg-white rounded-lg shadow-md border p-6"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.3, delay: index * 0.1 }}
+                  whileHover={{ y: -5, boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1)" }}
+                  className="p-6 transition-all bg-white border-2 border-transparent rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700 hover:border-orange-500"
                 >
-                  <div className="flex items-center gap-4 mb-4">
-                    <Briefcase size={24} className="text-orange-600" />
-                    <h2 className="text-2xl font-bold text-gray-900">
-                      {job.title}
-                    </h2>
+                  <div className="flex items-center justify-between mb-4">
+                    <span className="px-3 py-1 text-xs font-medium text-orange-600 bg-orange-100 rounded-full dark:bg-orange-900/30 dark:text-orange-400">
+                      {job.type}
+                    </span>
+                    <div className="flex items-center text-sm text-gray-500 dark:text-gray-400">
+                      <MapPin size={14} className="mr-1" />
+                      {job.location}
+                    </div>
                   </div>
-                  <p className="text-gray-600 mb-4">
-                    <span className="font-semibold">Location:</span> {job.location}
-                  </p>
-                  <p className="text-gray-700 mb-4">{job.description}</p>
+                  
+                  <h2 className="mb-3 text-2xl font-bold text-gray-900 dark:text-white">
+                    {job.title}
+                  </h2>
+                  
+                  <p className="mb-4 text-gray-700 dark:text-gray-300">{job.description}</p>
+                  
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    {job.skills.slice(0, 3).map((skill, idx) => (
+                      <span 
+                        key={idx}
+                        className="px-2 py-1 text-xs bg-gray-100 rounded dark:bg-gray-700"
+                      >
+                        {skill}
+                      </span>
+                    ))}
+                    {job.skills.length > 3 && (
+                      <span className="px-2 py-1 text-xs bg-gray-100 rounded dark:bg-gray-700">
+                        +{job.skills.length - 3} more
+                      </span>
+                    )}
+                  </div>
                   
                   {/* Expanded Details */}
                   <AnimatePresence>
@@ -193,23 +145,42 @@ export default function Careers() {
                         initial={{ opacity: 0, height: 0 }}
                         animate={{ opacity: 1, height: "auto" }}
                         exit={{ opacity: 0, height: 0 }}
-                        className="overflow-hidden mb-4"
+                        className="p-4 mb-4 overflow-hidden rounded-lg bg-gray-50 dark:bg-gray-700/30"
                       >
-                        <p className="text-gray-700">{job.details}</p>
+                        <h3 className="mb-2 text-lg font-semibold text-gray-900 dark:text-white">Job Details</h3>
+                        <p className="text-gray-700 dark:text-gray-300">{job.details}</p>
+                        
+                        <h3 className="mt-4 mb-2 text-lg font-semibold text-gray-900 dark:text-white">Requirements</h3>
+                        <ul className="pl-5 mb-4 space-y-1 text-gray-700 list-disc dark:text-gray-300">
+                          {job.requirements?.map((req, idx) => (
+                            <li key={idx}>{req}</li>
+                          )) || <li>No specific requirements listed.</li>}
+                        </ul>
                       </motion.div>
                     )}
                   </AnimatePresence>
                   
-                  <button
-                    onClick={() => toggleJobExpansion(job.id)}
-                    className="text-orange-600 font-semibold mb-4 block text-center"
-                  >
-                    {expandedJobs.has(job.id) ? "Hide Details" : "Learn More"}
-                  </button>
-                  <div className="flex justify-center">
+                  <div className="flex items-center justify-between mt-6">
                     <button
-                      onClick={() => router.push("/contact")}
-                      className="px-6 py-3 bg-orange-600 text-white rounded-lg hover:bg-orange-700 transition-colors"
+                      onClick={() => toggleJobExpansion(job.id)}
+                      className="flex items-center font-semibold text-orange-600 transition-colors dark:text-orange-500 hover:text-orange-700 dark:hover:text-orange-400"
+                    >
+                      {expandedJobs.has(job.id) ? (
+                        <>
+                          <ChevronUp size={18} className="mr-1" />
+                          Hide Details
+                        </>
+                      ) : (
+                        <>
+                          <ChevronDown size={18} className="mr-1" />
+                          View Details
+                        </>
+                      )}
+                    </button>
+                    
+                    <button
+                      onClick={() => router.push("/contact?ref=job-" + job.id + "&source=careers&type=job&title=" + encodeURIComponent(job.title))}
+                      className="px-6 py-2 text-white transition-colors bg-orange-600 rounded-lg hover:bg-orange-700 dark:hover:bg-orange-500"
                     >
                       Apply Now
                     </button>
@@ -218,27 +189,55 @@ export default function Careers() {
               ))}
             </motion.div>
           )}
+          
           {activeTab === "courses" && (
             <motion.div
               key="courses"
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}
-              className="grid md:grid-cols-2 gap-6"
+              className="grid grid-cols-1 gap-6 md:grid-cols-2"
             >
-              {certificationCourses.map((course) => (
+              {certificationsData.map((course, index) => (
                 <motion.div
                   key={course.id}
-                  whileHover={{ scale: 1.02 }}
-                  className="bg-white rounded-lg shadow-md border p-6 flex flex-col"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.3, delay: index * 0.1 }}
+                  whileHover={{ y: -5, boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1)" }}
+                  className="p-6 transition-all bg-white border-2 border-transparent rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700 hover:border-orange-500"
                 >
-                  <div className="flex items-center gap-4 mb-4">
-                    <BookOpen size={24} className="text-orange-600" />
-                    <h2 className="text-2xl font-bold text-gray-900">
-                      {course.title}
-                    </h2>
+                  <div className="flex items-center justify-between mb-4">
+                    <span className="px-3 py-1 text-xs font-medium text-orange-600 bg-orange-100 rounded-full dark:bg-orange-900/30 dark:text-orange-400">
+                      {course.provider}
+                    </span>
+                    <div className="flex items-center text-sm text-gray-500 dark:text-gray-400">
+                      <Clock size={14} className="mr-1" />
+                      {course.duration}
+                    </div>
                   </div>
-                  <p className="text-gray-700 mb-4">{course.description}</p>
+                  
+                  <h2 className="mb-3 text-2xl font-bold text-gray-900 dark:text-white">
+                    {course.title}
+                  </h2>
+                  
+                  <p className="mb-4 text-gray-700 dark:text-gray-300">{course.description}</p>
+                  
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    {course.skills.slice(0, 3).map((skill, idx) => (
+                      <span 
+                        key={idx}
+                        className="px-2 py-1 text-xs bg-gray-100 rounded dark:bg-gray-700"
+                      >
+                        {skill}
+                      </span>
+                    ))}
+                    {course.skills.length > 3 && (
+                      <span className="px-2 py-1 text-xs bg-gray-100 rounded dark:bg-gray-700">
+                        +{course.skills.length - 3} more
+                      </span>
+                    )}
+                  </div>
                   
                   {/* Expanded Details */}
                   <AnimatePresence>
@@ -247,23 +246,46 @@ export default function Careers() {
                         initial={{ opacity: 0, height: 0 }}
                         animate={{ opacity: 1, height: "auto" }}
                         exit={{ opacity: 0, height: 0 }}
-                        className="overflow-hidden mb-4"
+                        className="p-4 mb-4 overflow-hidden rounded-lg bg-gray-50 dark:bg-gray-700/30"
                       >
-                        <p className="text-gray-700">{course.details}</p>
+                        <h3 className="mb-2 text-lg font-semibold text-gray-900 dark:text-white">Course Details</h3>
+                        <p className="text-gray-700 dark:text-gray-300">{course.details}</p>
+                        
+                        <div className="grid grid-cols-2 gap-4 mt-4">
+                          <div>
+                            <h4 className="text-sm font-semibold text-gray-900 dark:text-white">Level</h4>
+                            <p className="text-gray-700 dark:text-gray-300">{course.level || "All Levels"}</p>
+                          </div>
+                          <div>
+                            <h4 className="text-sm font-semibold text-gray-900 dark:text-white">Format</h4>
+                            <p className="text-gray-700 dark:text-gray-300">{course.format || "Online"}</p>
+                          </div>
+                        </div>
                       </motion.div>
                     )}
                   </AnimatePresence>
                   
-                  <button
-                    onClick={() => toggleCourseExpansion(course.id)}
-                    className="text-orange-600 font-semibold mb-4 block text-center"
-                  >
-                    {expandedCourses.has(course.id) ? "Hide Details" : "Learn More"}
-                  </button>
-                  <div className="flex justify-center">
+                  <div className="flex items-center justify-between mt-6">
                     <button
-                      onClick={() => router.push("/contact")}
-                      className="px-6 py-3 bg-orange-600 text-white rounded-lg hover:bg-orange-700 transition-colors"
+                      onClick={() => toggleCourseExpansion(course.id)}
+                      className="flex items-center font-semibold text-orange-600 transition-colors dark:text-orange-500 hover:text-orange-700 dark:hover:text-orange-400"
+                    >
+                      {expandedCourses.has(course.id) ? (
+                        <>
+                          <ChevronUp size={18} className="mr-1" />
+                          Hide Details
+                        </>
+                      ) : (
+                        <>
+                          <ChevronDown size={18} className="mr-1" />
+                          View Details
+                        </>
+                      )}
+                    </button>
+                    
+                    <button
+                      onClick={() => router.push("/contact?ref=course-" + course.id)}
+                      className="px-6 py-2 text-white transition-colors bg-orange-600 rounded-lg hover:bg-orange-700 dark:hover:bg-orange-500"
                     >
                       Register Now
                     </button>

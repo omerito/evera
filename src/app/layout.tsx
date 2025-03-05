@@ -1,21 +1,13 @@
-import "../app/globals.css";
-import type { Metadata } from "next";
+"use client";
+
+import Footer from "@/components/Footer";
+import Header from "@/components/Header";
+import ScrollToTop from "@/components/ScrollToTop";
 import { Inter } from "next/font/google";
-import "./globals.css";
-import Navbar from "../components/Navbar";
-import type React from "react";
-import { Analytics } from '@vercel/analytics/react';
-import { SpeedInsights } from "@vercel/speed-insights/next"
+import "../styles/index.css";
+import { Providers } from "./providers";
 
 const inter = Inter({ subsets: ["latin"] });
-
-export const metadata: Metadata = {
-  title: "Evera Global",
-  description: "Professional business consulting services for modern enterprises",
-  icons: {
-    icon: "/logo-evera.png", // Add this line.
-  },
-};
 
 export default function RootLayout({
   children,
@@ -23,13 +15,22 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>
-        <Navbar />
-        <main className="min-h-screen">{children}</main>
-        <Analytics />
-        <SpeedInsights />
+    <html suppressHydrationWarning lang="en">
+      {/*
+        <head /> will contain the components returned by the nearest parent
+        head.js. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
+      */}
+      <head />
+
+      <body className={`bg-[#FCFCFC] dark:bg-black ${inter.className}`}>
+        <Providers>
+          <Header />
+          {children}
+          <Footer />
+          <ScrollToTop />
+        </Providers>
       </body>
     </html>
   );
 }
+
