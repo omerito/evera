@@ -12,7 +12,7 @@ const SinglePortfolio = ({ portfolio }: { portfolio: Portfolio }) => {
   return (
     <div className="w-full">
       <motion.div 
-        className="overflow-hidden bg-white border-2 border-gray-100 rounded-xl dark:border-gray-800 dark:bg-gray-800/50"
+        className="overflow-hidden bg-white border-2 border-transparent rounded-xl dark:border-gray-800 dark:bg-gray-800/50 hover:border-orange-500 dark:hover:border-orange-500 transition-all duration-300"
         whileHover={{ y: -5 }}
         transition={{ duration: 0.3 }}
       >
@@ -48,9 +48,9 @@ const SinglePortfolio = ({ portfolio }: { portfolio: Portfolio }) => {
             ))}
           </div>
           
-          <button
-            onClick={() => setShowDetails(true)}
+          <div
             className="inline-flex items-center text-sm font-medium text-orange-600 hover:text-orange-700 dark:hover:text-orange-400 group"
+            onClick={() => setShowDetails(true)}
           >
             Learn more
             <motion.span 
@@ -61,7 +61,7 @@ const SinglePortfolio = ({ portfolio }: { portfolio: Portfolio }) => {
             >
               <ArrowRight size={16} />
             </motion.span>
-          </button>
+          </div>
         </div>
       </motion.div>
       

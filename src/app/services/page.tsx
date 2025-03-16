@@ -5,26 +5,36 @@ import { motion, AnimatePresence } from "framer-motion";
 import {
   ChevronDown,
   ChevronUp,
-
-  Settings,
-  BarChart2,
+  Code,
+  BarChart3,
+  Database,
   Cloud,
   Shield,
-  MessageSquare,
-  Globe,
-  Smartphone,
-  Code,
-  Zap,
+  Users,
+  Smartphone
 } from "lucide-react";
 import Breadcrumb from "@/components/Common/Breadcrumb";
 import Link from "next/link";
 import CallToAction from "@/components/CallToAction";
+import menuData from "@/components/Header/menuData";
+
+// Get service icons from menuData
+const getServiceIcon = (slug: string) => {
+  const serviceMenu = menuData.find(item => item.title === "Services")?.submenu;
+  const service = serviceMenu?.find(item => item.path?.includes(slug));
+  return service?.icon ? service.icon : null;
+};
+
+// Helper function to get icon with consistent styling
+const getStyledIcon = (IconComponent: React.ElementType) => {
+  return <IconComponent size={24} className="text-orange-600" />;
+};
 
 const serviceCategories = [
   {
     title: "Website Development",
     slug: "website-development",
-    icon: <Globe size={24} className="text-orange-600" />,
+    icon: getServiceIcon("website-development") || <Code size={24} className="text-orange-600" />,
     description: "Modern, responsive websites and e-commerce solutions tailored to your business needs.",
     services: [
       {
@@ -48,7 +58,7 @@ const serviceCategories = [
   {
     title: "App Development",
     slug: "app-development",
-    icon: <Smartphone size={24} className="text-orange-600" />,
+    icon: getServiceIcon("app-development") || <Smartphone size={24} className="text-orange-600" />,
     description: "Native and cross-platform mobile applications for iOS and Android.",
     services: [
       {
@@ -72,7 +82,7 @@ const serviceCategories = [
   {
     title: "Business Automation",
     slug: "business-automation",
-    icon: <Settings size={24} className="text-orange-600" />,
+    icon: getServiceIcon("business-automation") || <BarChart3 size={24} className="text-orange-600" />,
     description: "Streamline your operations with custom automation solutions.",
     services: [
       {
@@ -113,7 +123,7 @@ const serviceCategories = [
   {
     title: "Data & Analytics",
     slug: "data-analytics",
-    icon: <BarChart2 size={24} className="text-orange-600" />,
+    icon: getServiceIcon("data-analytics") || <Database size={24} className="text-orange-600" />,
     description: "Transform your data into actionable insights with advanced analytics.",
     services: [
       {
@@ -145,7 +155,7 @@ const serviceCategories = [
   {
     title: "Cloud & Infrastructure",
     slug: "cloud-infrastructure",
-    icon: <Cloud size={24} className="text-orange-600" />,
+    icon: getServiceIcon("cloud-infrastructure") || <Cloud size={24} className="text-orange-600" />,
     description: "Scalable cloud solutions and infrastructure management.",
     services: [
       {
@@ -177,7 +187,7 @@ const serviceCategories = [
   {
     title: "Security & Compliance",
     slug: "security-compliance",
-    icon: <Shield size={24} className="text-orange-600" />,
+    icon: getServiceIcon("security-compliance") || <Shield size={24} className="text-orange-600" />,
     description: "Protect your digital assets and ensure regulatory compliance.",
     services: [
       {
@@ -209,7 +219,7 @@ const serviceCategories = [
   {
     title: "Customer Engagement",
     slug: "customer-engagement",
-    icon: <MessageSquare size={24} className="text-orange-600" />,
+    icon: getServiceIcon("customer-engagement") || <Users size={24} className="text-orange-600" />,
     description: "Build stronger customer relationships with smart engagement tools.",
     services: [
       {
@@ -303,7 +313,7 @@ export default function Services() {
           <div className="p-6 bg-white rounded-lg shadow-md dark:bg-gray-800">
             <div className="flex items-center mb-4">
               <div className="p-2 mr-4 bg-orange-100 rounded-full dark:bg-orange-900/30">
-                <MessageSquare size={24} className="text-orange-600" />
+                {getStyledIcon(Users)}
               </div>
               <h3 className="text-xl font-semibold text-gray-900 dark:text-white">Consultation</h3>
             </div>
@@ -315,7 +325,7 @@ export default function Services() {
           <div className="p-6 bg-white rounded-lg shadow-md dark:bg-gray-800">
             <div className="flex items-center mb-4">
               <div className="p-2 mr-4 bg-orange-100 rounded-full dark:bg-orange-900/30">
-                <Code size={24} className="text-orange-600" />
+                {getStyledIcon(Code)}
               </div>
               <h3 className="text-xl font-semibold text-gray-900 dark:text-white">Solution Design</h3>
             </div>
@@ -327,7 +337,7 @@ export default function Services() {
           <div className="p-6 bg-white rounded-lg shadow-md dark:bg-gray-800">
             <div className="flex items-center mb-4">
               <div className="p-2 mr-4 bg-orange-100 rounded-full dark:bg-orange-900/30">
-                <Zap size={24} className="text-orange-600" />
+                {getStyledIcon(BarChart3)}
               </div>
               <h3 className="text-xl font-semibold text-gray-900 dark:text-white">Implementation</h3>
             </div>

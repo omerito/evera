@@ -47,6 +47,7 @@ const Portfolio = () => {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
+              whileHover={{ y: -5 }}
             >
               <SinglePortfolio portfolio={portfolio} />
             </motion.div>
@@ -60,7 +61,7 @@ const Portfolio = () => {
           className="mt-12 text-center"
         >
           <Link
-            href="/services"
+            href="/portfolio"
             className="inline-flex items-center px-8 py-4 text-base font-medium text-white transition-all bg-orange-600 rounded-lg hover:bg-orange-700 dark:hover:bg-orange-500"
           >
             View All Projects

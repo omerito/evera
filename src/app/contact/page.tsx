@@ -1,10 +1,22 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { FaTelegramPlane, FaWhatsapp, FaEnvelope, FaCheckCircle } from "react-icons/fa";
-import { Phone, Clock, MapPin, Send, ChevronRight } from "lucide-react";
+import { FaTelegramPlane, FaWhatsapp, FaCheckCircle } from "react-icons/fa";
+import { Send, ChevronRight } from "lucide-react";
 import { useState } from "react";
 import Breadcrumb from "@/components/Common/Breadcrumb";
+import { 
+  MdEmail, 
+  MdLocalPhone, 
+  MdAccessTime 
+} from "react-icons/md";
+import { 
+  BsBuilding 
+} from "react-icons/bs";
+import { 
+  HiOfficeBuilding 
+} from "react-icons/hi";
+
 export default function Contact() {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [email, setEmail] = useState("");
@@ -234,7 +246,7 @@ export default function Contact() {
                     whileHover={{ x: 5 }}
                   >
                     <div className="flex items-center justify-center w-12 h-12 bg-orange-100 rounded-full dark:bg-orange-900/30">
-                      <FaEnvelope className="text-orange-600" size={20} />
+                      <MdEmail className="text-orange-600" size={24} />
                     </div>
                     <div>
                       <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Email</h3>
@@ -249,13 +261,24 @@ export default function Contact() {
                     whileHover={{ x: 5 }}
                   >
                     <div className="flex items-center justify-center w-12 h-12 bg-orange-100 rounded-full dark:bg-orange-900/30">
-                      <Phone className="text-orange-600" size={20} />
+                      <MdLocalPhone className="text-orange-600" size={24} />
                     </div>
                     <div>
                       <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Call Us</h3>
-                      <a href="tel:+16823869056" className="text-gray-600 transition-colors dark:text-gray-300 hover:text-orange-600 dark:hover:text-orange-400">
-                        +1 (682) 386-9056
-                      </a>
+                      <div className="flex flex-col mt-2 space-y-2">
+                        <a 
+                          href="tel:+16823869056" 
+                          className="text-gray-600 transition-colors dark:text-gray-300 hover:text-orange-600 dark:hover:text-orange-400"
+                        >
+                          +1 (682) 386-9056
+                        </a>
+                        <a 
+                          href="tel:+251919187288" 
+                          className="text-gray-600 transition-colors dark:text-gray-300 hover:text-orange-600 dark:hover:text-orange-400"
+                        >
+                          +251 919 187 288
+                        </a>
+                      </div>
                     </div>
                   </motion.div>
 
@@ -264,7 +287,7 @@ export default function Contact() {
                     whileHover={{ x: 5 }}
                   >
                     <div className="flex items-center justify-center w-12 h-12 bg-orange-100 rounded-full dark:bg-orange-900/30">
-                      <Clock className="text-orange-600" size={20} />
+                      <MdAccessTime className="text-orange-600" size={24} />
                     </div>
                     <div>
                       <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Office Hours</h3>
@@ -279,7 +302,7 @@ export default function Contact() {
                     whileHover={{ x: 5 }}
                   >
                     <div className="flex items-center justify-center w-12 h-12 bg-orange-100 rounded-full dark:bg-orange-900/30">
-                      <MapPin className="text-orange-600" size={20} />
+                      <HiOfficeBuilding className="text-orange-600" size={24} />
                     </div>
                     <div>
                       <h3 className="text-lg font-semibold text-gray-900 dark:text-white">U.S. Office</h3>
@@ -292,12 +315,12 @@ export default function Contact() {
                     whileHover={{ x: 5 }}
                   >
                     <div className="flex items-center justify-center w-12 h-12 bg-orange-100 rounded-full dark:bg-orange-900/30">
-                      <MapPin className="text-orange-600" size={20} />
+                      <BsBuilding className="text-orange-600" size={24} />
                     </div>
                     <div>
                       <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Ethiopia Office</h3>
                       <p className="text-gray-600 dark:text-gray-300">
-                        Jax Building, 8th Floor<br />
+                        Jax Building, 4th Floor<br />
                         Addis Ababa, Ethiopia
                       </p>
                     </div>

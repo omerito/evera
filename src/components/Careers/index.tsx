@@ -111,7 +111,7 @@ const Careers = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.3, delay: index * 0.1 }}
                   whileHover={{ y: -5, boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1)" }}
-                  className="p-6 bg-white border-2 border-transparent rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700 hover:border-orange-500"
+                  className="p-6 bg-white border-2 border-transparent rounded-lg shadow-md hover:border-orange-500 dark:bg-gray-800 dark:border-gray-700 dark:hover:border-orange-500 transition-all duration-300"
                 >
                   <div className="flex items-center justify-between mb-4">
                     <span className="px-3 py-1 text-xs font-medium text-orange-600 bg-orange-100 rounded-full dark:bg-orange-900/30">
@@ -163,7 +163,7 @@ const Careers = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.3, delay: index * 0.1 }}
                   whileHover={{ y: -5, boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1)" }}
-                  className="p-6 bg-white border-2 border-transparent rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700 hover:border-orange-500"
+                  className="p-6 transition-all duration-300 bg-white border-2 border-transparent rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700 dark:hover:border-orange-500"
                 >
                   <div className="flex items-center justify-between mb-4">
                     <span className="px-3 py-1 text-xs font-medium text-orange-600 bg-orange-100 rounded-full dark:bg-orange-900/30">

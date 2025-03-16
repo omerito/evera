@@ -88,14 +88,14 @@ export default function Portfolio() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: 20 }}
                 transition={{ duration: 0.3 }}
-                className="overflow-hidden bg-white rounded-lg shadow-md dark:bg-gray-800"
+                className="overflow-hidden bg-white border-2 border-transparent rounded-lg shadow-md dark:bg-gray-800 hover:border-orange-500 dark:hover:border-orange-500 transition-all duration-300"
+                whileHover={{ y: -5 }}
               >
                 <div className="relative overflow-hidden h-60">
                   <Image 
                     src={project.image} 
                     alt={project.title} 
-                    width={500}
-                    height={300}
+                    fill
                     className="object-cover w-full h-full transition-transform duration-500 hover:scale-105"
                   />
                   <div className="absolute top-0 right-0 p-2 m-2 text-xs font-medium text-white bg-orange-600 rounded-full">
@@ -116,7 +116,7 @@ export default function Portfolio() {
                     {project.technologies.slice(0, 4).map((tech, idx) => (
                       <span 
                         key={idx}
-                        className="px-2 py-1 text-xs text-orange-600 bg-orange-100 rounded dark:bg-orange-900/30 dark:text-orange-400"
+                        className="px-2 py-1 text-xs bg-orange-100 text-orange-600 rounded-full dark:bg-orange-900/30 dark:text-orange-400"
                       >
                         {tech}
                       </span>
@@ -179,6 +179,7 @@ export default function Portfolio() {
                         target="_blank"
                         rel="noopener noreferrer"
                         className="flex items-center px-4 py-2 text-white transition-colors bg-orange-600 rounded-lg hover:bg-orange-700 dark:hover:bg-orange-500"
+                        onClick={(e) => e.stopPropagation()}
                       >
                         <ExternalLink size={16} className="mr-1" />
                         Visit Site
