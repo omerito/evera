@@ -42,6 +42,12 @@ const Header = () => {
   // Close navigation when clicking outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
+      const navbarToggler = document.getElementById('navbarToggler');
+      // Don't close if clicking on the navbar toggler button
+      if (navbarToggler && navbarToggler.contains(event.target as Node)) {
+        return;
+      }
+      
       if (navRef.current && !navRef.current.contains(event.target as Node)) {
         setNavbarOpen(false);
         setOpenIndex(null);
